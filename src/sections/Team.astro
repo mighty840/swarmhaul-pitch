@@ -1,64 +1,204 @@
 ---
+const patents = [
+  {
+    year: "2020",
+    status: "GRANTED",
+    titleDe: "Datenbereitstellungsverfahren, Sensornetzwerk und Sensor",
+    titleEn: "Data provisioning method, sensor network and sensor",
+    relevance: "trustworthy data provisioning — foundational for agent telemetry",
+  },
+  {
+    year: "2022",
+    status: "PENDING",
+    titleDe:
+      "Content-Management-Prozess, Content-Management-System, Metaverse und Computerprogrammprodukt",
+    titleEn:
+      "Content management process, content management system, metaverse",
+    relevance: "decentralized content coordination in virtual environments",
+  },
+  {
+    year: "2022",
+    status: "PENDING",
+    titleDe:
+      "Verifizierungsverfahren und Verifizierungscomputersystem mit einem NFT-Erzeugungsgerät",
+    titleEn: "Verification method with an NFT generation device",
+    relevance: "on-chain verifiable attestations for physical objects",
+  },
+  {
+    year: "2023",
+    status: "PENDING",
+    titleDe:
+      "Kryptografisches Verfahren und durch das kryptografische Verfahren gesicherte verwahrte oder nicht verwahrte Geldbörse",
+    titleEn: "Cryptographic method for custodial or non-custodial wallets",
+    relevance: "wallet security primitives — directly applicable to agent custody",
+  },
+  {
+    year: "2023",
+    status: "PENDING",
+    titleDe: "Verfahren und System für den Waren- und/oder Posttransport",
+    titleEn: "Method and system for goods and/or mail transport",
+    relevance:
+      "literally the SwarmHaul protocol — patent filed three years before this hackathon",
+    highlight: true,
+  },
+];
+
+const credibility = [
+  {
+    when: "2021 — 2024",
+    label: "TRADE ▸ BMBF € 1.59M",
+    title: "Co-designed decentralized reputation layer",
+    body:
+      "TRustworthy Autonomous Driving by DEcentralized Authentication and Authorization — a BMBF-funded automotive identity framework built on DIDs, Verifiable Credentials, and IOTA Tangle. Partners: Filancore, ETO GRUPPE, TH Ingolstadt. The reputation primitives from this project are the foundation of SwarmHaul's trust model.",
+    color: "var(--color-cyan)",
+  },
+  {
+    when: "2023 — 2025",
+    label: "Tech Lead / PO ▸ ETOPay",
+    title: "Multi-platform payment SDK",
+    body:
+      "Rust-first SDK with Java, Swift, and TypeScript bindings. MPC wallets, MiCA compliance, gaming integration, non-custodial key recovery. Built the payment infrastructure layer that SwarmHaul now builds the coordination layer above.",
+    color: "var(--color-phosphor)",
+  },
+  {
+    when: "DEC 2024",
+    label: "WEB3 PIONEERS AUTUMN SCHOOL ▸ HY × AXEL SPRINGER",
+    title: "Hosted at hy Consulting Group, Berlin",
+    body:
+      "Brought together Web3 builders with leaders from automotive, energy, media, and manufacturing at Axel Springer's innovation consultancy in Berlin. Core thesis: IoT devices integrated with Web3 deliver immediate cross-company data-sharing value for the Mittelstand — the same thesis SwarmHaul extends to autonomous agent coordination.",
+    color: "var(--color-magenta)",
+  },
+  {
+    when: "CURRENT",
+    label: "BUILDING SWARMHAUL",
+    title: "Multi-agent coordination protocol on Solana",
+    body:
+      "Shipping to Colosseum Frontier. Everything on this page.",
+    color: "var(--color-amber)",
+  },
+];
 ---
 
 <section id="team" class="border-t border-[var(--color-line)] bg-[var(--color-graphite)]/30">
   <div class="section">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <!-- Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
       <div>
         <div class="label mb-4">▸ FOUNDER</div>
         <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light mb-6">
           <span class="editorial text-[var(--color-phosphor)]">Sharang</span> Parnerkar
         </h2>
         <p class="text-[14px] text-[var(--color-ash)] leading-relaxed mb-6 max-w-xl">
-          Tech lead and Product Owner at <strong class="text-[var(--color-bone)]">ETOPay</strong> —
-          built non-custodial payment infrastructure (Rust SDK, MPC wallets,
-          MiCA compliance). Now applying that experience to the layer above:
-          how do autonomous AI agents pay each other for collaborative work.
+          Co-designer of the reputation layer for <strong class="text-[var(--color-bone)]">TRADE</strong>
+          (BMBF €1.59M). Tech lead and Product Owner at
+          <strong class="text-[var(--color-bone)]">ETOPay</strong>. Five patents across
+          sensor networks, verifiable NFTs, cryptographic wallets, and —
+          <em class="editorial text-[var(--color-phosphor)]">three years before this hackathon</em> —
+          <strong class="text-[var(--color-bone)]">a method and system for decentralized goods transport</strong>.
         </p>
         <p class="text-[14px] text-[var(--color-ash)] leading-relaxed mb-8 max-w-xl">
-          SwarmHaul is the answer I wish existed two years ago, when I was
-          trying to wire AI agents into payment systems and kept hitting the
-          same wall: nobody had built the coordination protocol underneath.
+          SwarmHaul is the answer I've been designing for half a decade. Everything
+          on this page — the DIDs, the verifiable credentials, the web-of-trust
+          reputation, the cryptographic settlement, the logistics primitive — I've
+          either built, patented, or taught at a Web3 Autumn School at hy (Axel Springer)
+          in Berlin. Now it ships, as one protocol, on Solana.
         </p>
 
         <div class="flex flex-wrap gap-3">
           <a href="https://github.com/mighty840" target="_blank" rel="noopener" class="btn-ghost">
             GITHUB ↗
           </a>
-          <a href="#" class="btn-ghost">LINKEDIN ↗</a>
-          <a href="#" class="btn-ghost">TWITTER ↗</a>
+          <a href="https://www.linkedin.com/in/sharang-parnerkar/" target="_blank" rel="noopener" class="btn-ghost">
+            LINKEDIN ↗
+          </a>
         </div>
       </div>
 
-      <div>
-        <div class="label mb-4">CREDIBILITY</div>
-        <div class="space-y-3">
-          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-5">
-            <div class="text-[11px] tracking-[0.14em] text-[var(--color-cyan)] mb-1">2023 — 2025</div>
-            <div class="text-[16px] font-semibold">Tech Lead / PO ▸ ETOPay</div>
-            <div class="text-[12px] text-[var(--color-ash)] mt-1">
-              Multi-platform payment SDK (Rust ▸ Java ▸ Swift ▸ TS).
-              MPC wallets, MiCA compliance, gaming integration.
+      <!-- Right column: credibility cards -->
+      <div class="space-y-3">
+        {
+          credibility.map((c) => (
+            <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-5 hover:bg-[var(--color-elevated)] transition-colors">
+              <div
+                class="text-[10px] tracking-[0.14em] mb-1 font-semibold"
+                style={`color: ${c.color}`}
+              >
+                {c.when} — {c.label}
+              </div>
+              <div class="text-[15px] font-semibold text-[var(--color-bone)] mb-2">
+                {c.title}
+              </div>
+              <div class="text-[12px] text-[var(--color-ash)] leading-relaxed">
+                {c.body}
+              </div>
             </div>
-          </div>
+          ))
+        }
+      </div>
+    </div>
 
-          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-5">
-            <div class="text-[11px] tracking-[0.14em] text-[var(--color-cyan)] mb-1">CURRENT</div>
-            <div class="text-[16px] font-semibold">Building SwarmHaul</div>
-            <div class="text-[12px] text-[var(--color-ash)] mt-1">
-              Multi-agent coordination protocol on Solana. Fundable startup,
-              shipping to Colosseum Frontier.
-            </div>
-          </div>
+    <!-- Patents section -->
+    <div class="border-t border-[var(--color-line)] pt-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+        <div class="lg:col-span-1">
+          <div class="label mb-4">▸ PATENTS</div>
+          <h3 class="text-[28px] leading-[1.1] tracking-[-0.02em] font-light mb-4">
+            Five filings.<br />
+            <span class="editorial text-[var(--color-magenta)]">One</span> is literally<br />
+            this protocol.
+          </h3>
+          <p class="text-[12px] text-[var(--color-dim)] leading-relaxed">
+            Patent #5, filed in 2023, describes a method and system for
+            decentralized goods transport — the exact primitive SwarmHaul
+            demonstrates. This isn't a pivot; it's a return to a long-held thesis.
+          </p>
+        </div>
 
-          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-5">
-            <div class="text-[11px] tracking-[0.14em] text-[var(--color-cyan)] mb-1">ALSO</div>
-            <div class="text-[16px] font-semibold">YouTube + Trading Bots</div>
-            <div class="text-[12px] text-[var(--color-ash)] mt-1">
-              SIGNAL DECK (3 channels), live momentum trading bot,
-              compliance scanner. Ship-and-iterate operator.
-            </div>
-          </div>
+        <div class="lg:col-span-2 space-y-2">
+          {
+            patents.map((p, i) => (
+              <div
+                class={`border bg-[var(--color-void)] p-4 transition-colors ${
+                  p.highlight
+                    ? "border-[var(--color-magenta)] bg-[var(--color-magenta)]/5"
+                    : "border-[var(--color-line)] hover:border-[var(--color-line-hot)]"
+                }`}
+              >
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-[9px] text-[var(--color-dim)] tabular-nums font-mono">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span class="text-[10px] tracking-[0.14em] text-[var(--color-dim)]">
+                    {p.year}
+                  </span>
+                  <span
+                    class={`text-[9px] font-bold tracking-[0.16em] px-1.5 py-0.5 ${
+                      p.status === "GRANTED"
+                        ? "bg-[var(--color-phosphor)] text-[var(--color-void)]"
+                        : "text-[var(--color-amber)] border border-[var(--color-amber)]"
+                    }`}
+                  >
+                    {p.status}
+                  </span>
+                  {p.highlight && (
+                    <span class="text-[9px] font-bold tracking-[0.16em] text-[var(--color-magenta)] ml-auto">
+                      ◉ THE PROTOCOL
+                    </span>
+                  )}
+                </div>
+                <div class="text-[13px] font-semibold text-[var(--color-bone)] mb-1">
+                  {p.titleEn}
+                </div>
+                <div class="text-[10px] text-[var(--color-faint)] italic mb-2 editorial">
+                  {p.titleDe}
+                </div>
+                <div class="text-[11px] text-[var(--color-ash)]">
+                  <span class="text-[var(--color-dim)]">▸ </span>
+                  {p.relevance}
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
