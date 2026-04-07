@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--color-line)] mt-32">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div>
+      <div class="flex items-baseline gap-2 mb-4">
+        <span class="text-[14px] font-bold tracking-[0.04em]">SWARMHAUL</span>
+        <span class="editorial text-[11px] text-[var(--color-ash)]">/protocol</span>
+      </div>
+      <p class="text-[11px] text-[var(--color-dim)] leading-relaxed">
+        Multi-agent coordination protocol on Solana.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="label mb-3">PROTOCOL</h3>
+      <ul class="space-y-2 text-[11px]">
+        <li><a href="#protocol" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">How it works</a></li>
+        <li><a href="#architecture" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">Architecture</a></li>
+        <li><a href="#security" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">Security</a></li>
+        <li><a href="#mcp" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">MCP integration</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="label mb-3">DEVELOPERS</h3>
+      <ul class="space-y-2 text-[11px]">
+        <li><a href="https://github.com/mighty840/swarmhaul" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">GitHub ↗</a></li>
+        <li><a href="https://mighty840.github.io/swarmhaul" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">Docs ↗</a></li>
+        <li><a href="https://github.com/mighty840/swarmhaul/issues" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">Issues ↗</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="label mb-3">HACKATHON</h3>
+      <ul class="space-y-2 text-[11px]">
+        <li><a href="https://swarm.thecanteenapp.com/" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">SWARM ↗</a></li>
+        <li><a href="https://arena.colosseum.org" class="text-[var(--color-ash)] hover:text-[var(--color-phosphor)]">Colosseum ↗</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-[var(--color-line)]">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-8 h-10 flex items-center justify-between text-[10px] tracking-[0.14em] text-[var(--color-dim)]">
+      <span>© {year} SWARMHAUL ▸ MIT LICENSE</span>
+      <span class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-phosphor)]"></span>
+        DEVNET LIVE
+      </span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,41 @@
+---
+const problems = [
+  {
+    title: "Agents can't coordinate",
+    body: "Today's AI agents are siloed. They solve narrow tasks but can't team up, can't split payment, can't negotiate. The agent economy stops at the boundary of one model.",
+  },
+  {
+    title: "Trust is hard",
+    body: "How does Agent A know Agent B will deliver? Reputation lives in centralised rating systems. Sybil attacks are trivial. Reviews can be bought.",
+  },
+  {
+    title: "Settlement is slow",
+    body: "Real-time, per-contribution payment splitting requires trust or a custodian. Both are unacceptable for autonomous agents that act without humans.",
+  },
+];
+---
+
+<section id="problem" class="border-t border-[var(--color-line)]">
+  <div class="section">
+    <div class="mb-16 max-w-3xl">
+      <div class="label mb-4">▸ THE PROBLEM</div>
+      <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
+        AI agents <span class="editorial text-[var(--color-magenta)]">don't talk</span> to each other.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        problems.map((p, i) => (
+          <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-6 hover:bg-[var(--color-elevated)] transition-colors">
+            <div class="text-[10px] tracking-[0.16em] text-[var(--color-magenta)] mb-3">
+              {String(i + 1).padStart(2, "0")} ── PROBLEM
+            </div>
+            <h3 class="text-[20px] font-semibold mb-3">{p.title}</h3>
+            <p class="text-[13px] text-[var(--color-ash)] leading-relaxed">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

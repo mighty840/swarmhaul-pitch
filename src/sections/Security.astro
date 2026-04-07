@@ -1,0 +1,90 @@
+---
+const findings = [
+  {
+    sev: "CRIT",
+    title: "Vault drain via unbounded confirm_leg",
+    fix: "Per-leg PDA binds courier + payment + confirmed flag",
+    color: "var(--color-magenta)",
+  },
+  {
+    sev: "CRIT",
+    title: "Permissionless reputation manipulation",
+    fix: "Standalone update_reputation deleted; mutations bound to verified actions",
+    color: "var(--color-magenta)",
+  },
+  {
+    sev: "CRIT",
+    title: "Swarm hijack by random signer",
+    fix: "form_swarm + assign_leg + settle constrained to package coordinator",
+    color: "var(--color-magenta)",
+  },
+];
+---
+
+<section id="security" class="border-t border-[var(--color-line)] bg-[var(--color-graphite)]/30">
+  <div class="section">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <div class="label mb-4">▸ SECURITY</div>
+        <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light mb-6">
+          Audited <span class="editorial text-[var(--color-phosphor)]">first.</span> Shipped second.
+        </h2>
+        <p class="text-[14px] text-[var(--color-ash)] leading-relaxed mb-6 max-w-xl">
+          Before any feature work, we ran a brutal internal security audit
+          against the Anchor program. Three critical findings — all fixed
+          before this site went live. Every fix has a negative test that
+          proves the attack is impossible by construction.
+        </p>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4">
+            <div class="label mb-1">CRITICAL FIXED</div>
+            <div class="text-[24px] font-light text-[var(--color-phosphor)] tabular-nums">3 / 3</div>
+          </div>
+          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4">
+            <div class="label mb-1">ANCHOR TESTS</div>
+            <div class="text-[24px] font-light text-[var(--color-phosphor)] tabular-nums">14 / 14</div>
+          </div>
+          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4">
+            <div class="label mb-1">CHECKED MATH</div>
+            <div class="text-[24px] font-light text-[var(--color-phosphor)] tabular-nums">100%</div>
+          </div>
+          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4">
+            <div class="label mb-1">EVENTS EMITTED</div>
+            <div class="text-[24px] font-light text-[var(--color-phosphor)] tabular-nums">6</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="label mb-4">CRITICAL FINDINGS — ALL CLOSED</div>
+        <div class="space-y-3">
+          {
+            findings.map((f) => (
+              <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <span
+                    class="text-[9px] font-bold tracking-[0.16em] px-1.5 py-0.5"
+                    style={`background-color: ${f.color}; color: var(--color-void)`}
+                  >
+                    {f.sev}
+                  </span>
+                  <span class="text-[var(--color-phosphor)] text-[10px] tracking-[0.16em] uppercase">
+                    ✓ FIXED
+                  </span>
+                </div>
+                <h3 class="text-[14px] font-semibold mb-2 text-[var(--color-bone)]">
+                  {f.title}
+                </h3>
+                <p class="text-[11px] text-[var(--color-ash)] leading-relaxed">
+                  <span class="text-[var(--color-dim)]">FIX ▸ </span>
+                  {f.fix}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

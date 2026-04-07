@@ -1,0 +1,62 @@
+---
+const layers = [
+  {
+    name: "DASHBOARD",
+    tech: "React 19 ▸ Vite ▸ Leaflet ▸ Tailwind v4",
+    desc: "Mission-control terminal UI. Shipper, courier, and live economy observatory views.",
+    color: "var(--color-cyan)",
+  },
+  {
+    name: "API LAYER",
+    tech: "Fastify ▸ Prisma ▸ Postgres ▸ WebSocket ▸ MCP",
+    desc: "REST + WebSocket + MCP server. Swarm coordinator, route optimizer, bid evaluation, on-chain transaction orchestration.",
+    color: "var(--color-phosphor)",
+  },
+  {
+    name: "AGENT RUNTIME",
+    tech: "Node 20 ▸ TypeScript ▸ LiteLLM ▸ Solana web3.js",
+    desc: "Per-device autonomous daemon. LLM-based reasoning, cost model, itinerary matching, wallet signing.",
+    color: "var(--color-amber)",
+  },
+  {
+    name: "SOLANA PROGRAM",
+    tech: "Anchor 0.31 ▸ Rust ▸ 7 instructions ▸ 5 account types",
+    desc: "On-chain protocol. PDA escrow vaults, per-leg binding, signer-bound confirmations, atomic reputation updates.",
+    color: "var(--color-magenta)",
+  },
+];
+---
+
+<section id="architecture" class="border-t border-[var(--color-line)]">
+  <div class="section">
+    <div class="mb-16 max-w-3xl">
+      <div class="label mb-4">▸ ARCHITECTURE</div>
+      <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
+        Four layers, <span class="editorial text-[var(--color-amber)]">one protocol.</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {
+        layers.map((layer) => (
+          <div
+            class="grid grid-cols-12 gap-4 border border-[var(--color-line)] bg-[var(--color-graphite)] p-6 hover:bg-[var(--color-elevated)] transition-colors"
+          >
+            <div class="col-span-12 md:col-span-1 flex md:block">
+              <div class="w-1 h-full md:h-12" style={`background-color: ${layer.color}`}></div>
+            </div>
+            <div class="col-span-12 md:col-span-3">
+              <div class="text-[16px] font-semibold tracking-[0.04em]" style={`color: ${layer.color}`}>
+                {layer.name}
+              </div>
+              <code class="text-[10px] text-[var(--color-dim)] block mt-1">{layer.tech}</code>
+            </div>
+            <div class="col-span-12 md:col-span-8">
+              <p class="text-[13px] text-[var(--color-ash)] leading-relaxed">{layer.desc}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

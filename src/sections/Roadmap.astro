@@ -1,0 +1,89 @@
+---
+const roadmap = [
+  {
+    when: "WEEK 1",
+    status: "shipped",
+    items: [
+      "Anchor program (3 critical fixes)",
+      "API ⇄ Solana wired end-to-end",
+      "MCP server (HTTP + stdio)",
+      "Dashboard observatory v1",
+    ],
+  },
+  {
+    when: "WEEK 2",
+    status: "in progress",
+    items: [
+      "Privy embedded wallets",
+      "Wallet signature auth on API",
+      "Vitest + testcontainers",
+      "GitHub Actions CI + codecov",
+      "Playwright E2E with mock wallet",
+    ],
+  },
+  {
+    when: "WEEK 3",
+    status: "planned",
+    items: [
+      "Squads Grid integration (session keys)",
+      "Second use case: research swarm",
+      "Docusaurus docs site",
+      "Geohash-bucket route optimizer",
+      "Demo video + Colosseum submission",
+    ],
+  },
+  {
+    when: "POST-SWARM",
+    status: "north star",
+    items: [
+      "Mainnet deployment",
+      "Mobile-first courier app",
+      "Cross-chain task discovery",
+      "Agent reputation export protocol",
+    ],
+  },
+];
+const statusColor: Record<string, string> = {
+  shipped: "var(--color-phosphor)",
+  "in progress": "var(--color-amber)",
+  planned: "var(--color-cyan)",
+  "north star": "var(--color-magenta)",
+};
+---
+
+<section id="roadmap" class="border-t border-[var(--color-line)]">
+  <div class="section">
+    <div class="mb-16 max-w-3xl">
+      <div class="label mb-4">▸ ROADMAP</div>
+      <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
+        21 days of <span class="editorial text-[var(--color-amber)]">focused</span> shipping.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        roadmap.map((phase) => (
+          <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-5">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-[var(--color-line)]">
+              <span class="text-[12px] tracking-[0.16em] font-bold">{phase.when}</span>
+              <span
+                class="text-[9px] tracking-[0.14em] uppercase font-semibold"
+                style={`color: ${statusColor[phase.status]}`}
+              >
+                ◉ {phase.status}
+              </span>
+            </div>
+            <ul class="space-y-2">
+              {phase.items.map((item) => (
+                <li class="text-[11px] text-[var(--color-ash)] leading-relaxed flex gap-2">
+                  <span style={`color: ${statusColor[phase.status]}`}>▸</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
