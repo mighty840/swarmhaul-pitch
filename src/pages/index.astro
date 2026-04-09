@@ -34,17 +34,49 @@ import CTA from "../sections/CTA.astro";
 </Layout>
 
 <style>
-  /* Presentation mode: each section snaps to viewport */
+  /* Presentation mode: proximity snap (not mandatory — allows tall sections) */
   main > :global(section) {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     scroll-snap-align: start;
+    overflow: hidden;
+    position: relative;
   }
 
   html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
   }
+
+  /* Entrance animations triggered by scroll */
+  :global(.reveal) {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  :global(.reveal.visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  :global(.reveal-delay-1) { transition-delay: 0.1s; }
+  :global(.reveal-delay-2) { transition-delay: 0.2s; }
+  :global(.reveal-delay-3) { transition-delay: 0.3s; }
+  :global(.reveal-delay-4) { transition-delay: 0.4s; }
 </style>
+
+<script>
+  // Intersection Observer for scroll-triggered entrance animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
