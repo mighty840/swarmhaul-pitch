@@ -24,16 +24,14 @@ jobs:
         with:
           bun-version: 1.2.12
 
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Build site
-        run: bunx astro build
-        env:
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
-
       - uses: actions/configure-pages@v5
         id: pages
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build site
+        run: bunx astro build --site "https://mighty840.github.io" --base "/swarmhaul-pitch"
 
       - uses: actions/upload-pages-artifact@v3
         with:
