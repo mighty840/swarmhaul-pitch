@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import PresentationControls from "../components/PresentationControls.astro";
 import Hero from "../sections/Hero.astro";
 import Problem from "../sections/Problem.astro";
 import Protocol from "../sections/Protocol.astro";
@@ -29,4 +30,21 @@ import CTA from "../sections/CTA.astro";
     <CTA />
   </main>
   <Footer />
+  <PresentationControls />
 </Layout>
+
+<style>
+  /* Presentation mode: each section snaps to viewport */
+  main > :global(section) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+  }
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+</style>
