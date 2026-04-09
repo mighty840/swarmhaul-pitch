@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwarmHaul — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200..800;1,200..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#06060a;--graphite:#0c0c12;--elevated:#11111a;--surface:#161620;
+  --line:#1f1f2c;--line-hot:#2c2c3c;
+  --bone:#f4f4f1;--ash:#8a8a98;--dim:#4a4a58;--faint:#2a2a36;
+  --green:#00ff9c;--cyan:#00d4ff;--purple:#6C5CE7;--magenta:#ff2d8a;--amber:#ffb800;
+  --mono:'JetBrains Mono',monospace;--serif:'Instrument Serif',serif;
+}
+html{scroll-behavior:smooth;background:var(--void);color:var(--bone);font-family:var(--mono)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:'ss01','cv11','calt';line-height:1.6}
+::selection{background:var(--green);color:var(--void)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--graphite)}::-webkit-scrollbar-thumb{background:var(--line-hot)}
+
+/* Navigation */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--void)/0.92;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);height:56px;display:flex;align-items:center;padding:0 40px}
+nav a{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ash);text-decoration:none;padding:8px 14px;transition:color 0.15s}
+nav a:hover{color:var(--green)}
+.nav-brand{font-size:13px;font-weight:700;letter-spacing:0.06em;color:var(--bone);margin-right:auto}
+.nav-brand span{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ash);font-size:11px;margin-left:6px}
+
+/* Sections */
+section{max-width:1200px;margin:0 auto;padding:120px 40px 80px}
+section:first-of-type{padding-top:160px}
+.section-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--dim)}
+.section-title{font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+.section-title em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--green)}
+.section-subtitle{font-size:14px;color:var(--ash);max-width:560px;line-height:1.7;margin-bottom:56px}
+.divider{height:1px;background:var(--line);margin:80px 0}
+
+/* Logo display cards */
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-bottom:40px}
+.logo-card{border:1px solid var(--line);padding:48px 32px;display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;transition:border-color 0.2s}
+.logo-card:hover{border-color:var(--line-hot)}
+.logo-card.dark{background:var(--void)}
+.logo-card.light{background:#f8f8f6}
+.logo-card.mid{background:var(--surface)}
+.logo-card .card-label{position:absolute;top:12px;left:14px;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim)}
+.logo-card.light .card-label{color:#999}
+.logo-card svg{max-width:200px;height:auto}
+.logo-card.wide{grid-column:span 2}
+.logo-card.wide svg{max-width:360px}
+
+/* The refined flock mark */
+.flock-mark{overflow:visible}
+
+/* Color swatches */
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.swatch{border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:transform 0.15s,border-color 0.2s}
+.swatch:hover{transform:translateY(-2px);border-color:var(--line-hot)}
+.swatch-color{height:100px}
+.swatch-info{padding:14px 16px;background:var(--graphite)}
+.swatch-name{font-size:11px;font-weight:600;letter-spacing:0.08em;margin-bottom:4px}
+.swatch-hex{font-size:10px;color:var(--ash);letter-spacing:0.06em}
+.swatch-role{font-size:9px;color:var(--dim);margin-top:6px;letter-spacing:0.1em;text-transform:uppercase}
+
+/* Typography specimens */
+.type-specimen{border:1px solid var(--line);padding:40px;margin-bottom:24px}
+.type-name{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.type-sample-large{font-size:clamp(36px,5vw,64px);line-height:1.15;margin-bottom:16px;letter-spacing:-0.02em}
+.type-sample-body{font-size:14px;color:var(--ash);line-height:1.8;max-width:600px}
+.type-weights{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px}
+.type-weights span{font-size:24px}
+
+/* Clear space diagram */
+.clearspace{position:relative;display:inline-block;padding:80px;border:1px dashed var(--line-hot);margin:40px 0}
+.clearspace-x{position:absolute;font-size:9px;color:var(--magenta);letter-spacing:0.14em}
+.clearspace svg{display:block}
+
+/* Do/Don't grid */
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.dodont-card{border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;align-items:center;gap:24px}
+.dodont-card.do{border-top:3px solid var(--green)}
+.dodont-card.dont{border-top:3px solid var(--magenta)}
+.dodont-card .badge{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700}
+.dodont-card.do .badge{color:var(--green)}
+.dodont-card.dont .badge{color:var(--magenta)}
+.dodont-card svg{max-width:160px}
+.dodont-card p{font-size:11px;color:var(--ash);text-align:center;line-height:1.6}
+
+/* Voice */
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.voice-card{border:1px solid var(--line);padding:28px;background:var(--graphite)}
+.voice-card h3{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px}
+.voice-card p{font-size:12px;color:var(--ash);line-height:1.7}
+
+/* Applications */
+.app-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.app-mock{border:1px solid var(--line);overflow:hidden;position:relative}
+.app-mock .mock-label{position:absolute;top:12px;left:14px;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);z-index:2}
+.app-mock .mock-body{padding:40px;display:flex;align-items:center;justify-content:center;min-height:240px}
+.app-mock.mock-dark .mock-body{background:var(--void)}
+.app-mock.mock-light .mock-body{background:#ffffff}
+.app-mock.mock-circle .mock-body{background:linear-gradient(135deg,var(--purple),var(--cyan))}
+.app-mock.mock-social .mock-body{background:var(--graphite)}
+.app-mock .mock-body svg{max-width:200px}
+
+/* Keywords */
+.keywords{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.keyword{border:1px solid var(--line);padding:8px 16px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ash)}
+
+/* Gradient bar */
+.gradient-bar{height:6px;background:linear-gradient(90deg,var(--purple),var(--cyan),var(--green));margin:40px 0 0}
+
+/* Responsive */
+@media(max-width:768px){
+  section{padding:100px 20px 60px}
+  .logo-card.wide{grid-column:span 1}
+  .dodont,.voice-grid,.app-grid{grid-template-columns:1fr}
+  nav{padding:0 16px}
+}
+
+/* Fade-in animation */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+section{animation:fadeUp 0.6s ease-out}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">SWARMHAUL<span>/ brand guidelines</span></div>
+  <a href="#logo">Logo</a>
+  <a href="#color">Color</a>
+  <a href="#type">Type</a>
+  <a href="#space">Space</a>
+  <a href="#usage">Usage</a>
+  <a href="#voice">Voice</a>
+  <a href="#apply">Apply</a>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section style="text-align:center;padding-top:200px;padding-bottom:100px">
+  <svg class="flock-mark" width="240" height="180" viewBox="0 0 512 512" style="margin:0 auto 48px;display:block">
+    <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+    <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#fg)"/>
+    <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#fg)" opacity="0.82"/>
+    <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#fg)" opacity="0.82"/>
+    <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#fg)" opacity="0.55"/>
+    <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#fg)" opacity="0.55"/>
+  </svg>
+  <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Brand Guidelines — v1.0 — April 2026</div>
+  <h1 style="font-size:clamp(40px,6vw,72px);font-weight:200;letter-spacing:-0.04em;line-height:1">SWARM<span style="font-weight:600">HAUL</span></h1>
+  <p style="font-size:14px;color:var(--ash);margin-top:16px;letter-spacing:0.02em">Multi-agent coordination protocol on Solana</p>
+  <div class="gradient-bar" style="max-width:200px;margin:48px auto 0;border-radius:3px"></div>
+</section>
+
+<!-- ═══════════════════════ LOGO SUITE ═══════════════════════ -->
+<section id="logo">
+  <div class="section-label">01 — Logo</div>
+  <h2 class="section-title">The <em>flock</em> mark</h2>
+  <p class="section-subtitle">Five chevron-birds in V-formation, representing autonomous agents coordinating in flight. The lead agent is boldest; trailing agents fade — showing the swarm assembling. The gradient flows from ambition (purple) through clarity (cyan) to execution (green).</p>
+
+  <div class="logo-grid">
+    <!-- Primary mark, dark bg -->
+    <div class="logo-card dark wide">
+      <span class="card-label">Primary mark — dark</span>
+      <svg viewBox="0 0 512 512" width="280">
+        <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#g1)"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#g1)" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#g1)" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#g1)" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#g1)" opacity="0.55"/>
+      </svg>
+    </div>
+
+    <!-- Primary mark, light bg -->
+    <div class="logo-card light">
+      <span class="card-label">Primary mark — light</span>
+      <svg viewBox="0 0 512 512" width="160">
+        <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#g2)"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#g2)" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#g2)" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#g2)" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#g2)" opacity="0.55"/>
+      </svg>
+    </div>
+
+    <!-- Monochrome white -->
+    <div class="logo-card dark">
+      <span class="card-label">Monochrome — white</span>
+      <svg viewBox="0 0 512 512" width="140">
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="#f4f4f1"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="#f4f4f1" opacity="0.75"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="#f4f4f1" opacity="0.75"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="#f4f4f1" opacity="0.45"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="#f4f4f1" opacity="0.45"/>
+      </svg>
+    </div>
+
+    <!-- Monochrome black -->
+    <div class="logo-card light">
+      <span class="card-label">Monochrome — black</span>
+      <svg viewBox="0 0 512 512" width="140">
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="#1a1a1a"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="#1a1a1a" opacity="0.75"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="#1a1a1a" opacity="0.75"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="#1a1a1a" opacity="0.45"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="#1a1a1a" opacity="0.45"/>
+      </svg>
+    </div>
+
+    <!-- Single color: green -->
+    <div class="logo-card dark">
+      <span class="card-label">Single color — green</span>
+      <svg viewBox="0 0 512 512" width="140">
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="#00ff9c"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="#00ff9c" opacity="0.75"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="#00ff9c" opacity="0.75"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="#00ff9c" opacity="0.45"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="#00ff9c" opacity="0.45"/>
+      </svg>
+    </div>
+
+    <!-- Favicon -->
+    <div class="logo-card mid">
+      <span class="card-label">Favicon — 32px</span>
+      <div style="display:flex;align-items:center;gap:32px">
+        <div style="width:32px;height:32px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:var(--void)">
+          <svg viewBox="0 0 512 512" width="24">
+            <defs><linearGradient id="gf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+            <path d="M300,180 L420,256 L300,332 L332,256Z" fill="url(#gf)"/>
+            <path d="M188,120 L292,192 L188,264 L216,192Z" fill="url(#gf)" opacity="0.7"/>
+            <path d="M188,248 L292,320 L188,392 L216,320Z" fill="url(#gf)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div style="width:64px;height:64px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:var(--void);border-radius:12px">
+          <svg viewBox="0 0 512 512" width="44">
+            <defs><linearGradient id="gf2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+            <path d="M300,180 L420,256 L300,332 L332,256Z" fill="url(#gf2)"/>
+            <path d="M188,120 L292,192 L188,264 L216,192Z" fill="url(#gf2)" opacity="0.7"/>
+            <path d="M188,248 L292,320 L188,392 L216,320Z" fill="url(#gf2)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div style="font-size:9px;color:var(--dim);letter-spacing:0.14em">32px &nbsp;·&nbsp; 64px APP ICON</div>
+      </div>
+    </div>
+
+    <!-- Horizontal lockup -->
+    <div class="logo-card dark wide" style="gap:24px">
+      <span class="card-label">Horizontal lockup</span>
+      <svg viewBox="0 0 512 512" width="80" style="flex-shrink:0">
+        <defs><linearGradient id="gl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#gl)"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#gl)" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#gl)" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#gl)" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#gl)" opacity="0.55"/>
+      </svg>
+      <div>
+        <div style="font-size:28px;font-weight:200;letter-spacing:0.06em;color:var(--bone)">SWARM<span style="font-weight:700">HAUL</span></div>
+        <div style="font-size:9px;letter-spacing:0.22em;color:var(--dim);margin-top:4px;text-transform:uppercase">Multi-agent coordination protocol</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ COLOR PALETTE ═══════════════════════ -->
+<section id="color">
+  <div class="section-label">02 — Color</div>
+  <h2 class="section-title">Palette</h2>
+  <p class="section-subtitle">The gradient is the brand's signature — flowing from ambition to execution. Supporting colors provide contrast and hierarchy in the terminal UI.</p>
+
+  <div style="height:48px;background:linear-gradient(90deg,#6C5CE7,#00d4ff,#00ff9c);border-radius:4px;margin-bottom:48px"></div>
+
+  <h3 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Primary Gradient</h3>
+  <div class="palette" style="margin-bottom:40px">
+    <div class="swatch" onclick="navigator.clipboard.writeText('#6C5CE7')"><div class="swatch-color" style="background:#6C5CE7"></div><div class="swatch-info"><div class="swatch-name">Purple</div><div class="swatch-hex">#6C5CE7 · rgb(108,92,231)</div><div class="swatch-role">Gradient start · ambition</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#00d4ff')"><div class="swatch-color" style="background:#00d4ff"></div><div class="swatch-info"><div class="swatch-name">Cyan</div><div class="swatch-hex">#00d4ff · rgb(0,212,255)</div><div class="swatch-role">Gradient mid · clarity</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#00ff9c')"><div class="swatch-color" style="background:#00ff9c"></div><div class="swatch-info"><div class="swatch-name">Phosphor Green</div><div class="swatch-hex">#00ff9c · rgb(0,255,156)</div><div class="swatch-role">Gradient end · execution</div></div></div>
+  </div>
+
+  <h3 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Accents</h3>
+  <div class="palette" style="margin-bottom:40px">
+    <div class="swatch" onclick="navigator.clipboard.writeText('#ff2d8a')"><div class="swatch-color" style="background:#ff2d8a"></div><div class="swatch-info"><div class="swatch-name">Magenta</div><div class="swatch-hex">#ff2d8a</div><div class="swatch-role">Alerts · forming swarms</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#ffb800')"><div class="swatch-color" style="background:#ffb800"></div><div class="swatch-info"><div class="swatch-name">Amber</div><div class="swatch-hex">#ffb800</div><div class="swatch-role">Warnings · pending states</div></div></div>
+  </div>
+
+  <h3 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Neutrals</h3>
+  <div class="palette">
+    <div class="swatch" onclick="navigator.clipboard.writeText('#06060a')"><div class="swatch-color" style="background:#06060a;border-bottom:1px solid var(--line)"></div><div class="swatch-info"><div class="swatch-name">Void</div><div class="swatch-hex">#06060a</div><div class="swatch-role">Primary background</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#0c0c12')"><div class="swatch-color" style="background:#0c0c12;border-bottom:1px solid var(--line)"></div><div class="swatch-info"><div class="swatch-name">Graphite</div><div class="swatch-hex">#0c0c12</div><div class="swatch-role">Panel backgrounds</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#1f1f2c')"><div class="swatch-color" style="background:#1f1f2c;border-bottom:1px solid var(--line)"></div><div class="swatch-info"><div class="swatch-name">Line</div><div class="swatch-hex">#1f1f2c</div><div class="swatch-role">Borders · dividers</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#8a8a98')"><div class="swatch-color" style="background:#8a8a98"></div><div class="swatch-info"><div class="swatch-name">Ash</div><div class="swatch-hex">#8a8a98</div><div class="swatch-role">Secondary text</div></div></div>
+    <div class="swatch" onclick="navigator.clipboard.writeText('#f4f4f1')"><div class="swatch-color" style="background:#f4f4f1"></div><div class="swatch-info"><div class="swatch-name" style="color:#1a1a1a">Bone</div><div class="swatch-hex" style="color:#666">#f4f4f1</div><div class="swatch-role" style="color:#999">Primary text · headings</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TYPOGRAPHY ═══════════════════════ -->
+<section id="type">
+  <div class="section-label">03 — Typography</div>
+  <h2 class="section-title">Two voices, <em>one system</em></h2>
+  <p class="section-subtitle">JetBrains Mono grounds everything in technical precision. Instrument Serif italic provides moments of editorial warmth — used sparingly for emphasis.</p>
+
+  <div class="type-specimen">
+    <div class="type-name">Primary — JetBrains Mono</div>
+    <div class="type-sample-large">Agents coordinate.<br>Payment settles.</div>
+    <div class="type-sample-body">The quick brown fox jumps over the lazy dog. 0123456789. SwarmHaul is a multi-agent coordination protocol on Solana where autonomous AI agents self-organize into delivery swarms.</div>
+    <div class="type-weights">
+      <span style="font-weight:200">Aa 200</span>
+      <span style="font-weight:300">Aa 300</span>
+      <span style="font-weight:400">Aa 400</span>
+      <span style="font-weight:600">Aa 600</span>
+      <span style="font-weight:800">Aa 800</span>
+    </div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-name">Display Accent — Instrument Serif Italic</div>
+    <div class="type-sample-large" style="font-family:var(--serif);font-style:italic;font-weight:400">autonomous agents,<br>self-organising</div>
+    <div class="type-sample-body">Used for: section titles (single emphasized word), hero headlines, editorial pull quotes. Never for body text, labels, or UI components. Maximum 3-4 words per instance.</div>
+  </div>
+
+  <div style="border:1px solid var(--line);padding:40px">
+    <div class="type-name">Pairing Example</div>
+    <div style="font-size:36px;font-weight:200;letter-spacing:-0.02em;margin-bottom:8px">Five instructions. <span style="font-family:var(--serif);font-style:italic;font-weight:400;color:var(--green)">No middleman.</span></div>
+    <div style="font-size:12px;color:var(--ash);line-height:1.8;max-width:480px">SwarmHaul is a generic task-coordination protocol — logistics is one reference demo. The same five-step lifecycle works for research swarms, content pipelines, or anything you can decompose into parallel paid work.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CLEAR SPACE ═══════════════════════ -->
+<section id="space">
+  <div class="section-label">04 — Clear Space</div>
+  <h2 class="section-title">Breathing room</h2>
+  <p class="section-subtitle">The minimum clear space around the mark equals the height of one bird in the formation. No elements may intrude into this boundary.</p>
+
+  <div style="display:flex;justify-content:center">
+    <div class="clearspace" style="background:var(--graphite)">
+      <span class="clearspace-x" style="top:24px;left:50%;transform:translateX(-50%)">1x</span>
+      <span class="clearspace-x" style="bottom:24px;left:50%;transform:translateX(-50%)">1x</span>
+      <span class="clearspace-x" style="left:24px;top:50%;transform:translateY(-50%) rotate(-90deg)">1x</span>
+      <span class="clearspace-x" style="right:24px;top:50%;transform:translateY(-50%) rotate(90deg)">1x</span>
+      <svg viewBox="0 0 512 512" width="180">
+        <defs><linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#gc)"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#gc)" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#gc)" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#gc)" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#gc)" opacity="0.55"/>
+      </svg>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:16px;font-size:11px;color:var(--dim)">1x = height of one chevron-bird (~20% of total mark height)</div>
+</section>
+
+<!-- ═══════════════════════ DO'S AND DON'TS ═══════════════════════ -->
+<section id="usage">
+  <div class="section-label">05 — Usage</div>
+  <h2 class="section-title">Do's and <em>don'ts</em></h2>
+
+  <div class="dodont">
+    <div class="dodont-card do">
+      <span class="badge">✓ Do</span>
+      <svg viewBox="0 0 512 512" width="120">
+        <defs><linearGradient id="gdo1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#gdo1)"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#gdo1)" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#gdo1)" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#gdo1)" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#gdo1)" opacity="0.55"/>
+      </svg>
+      <p>Use the gradient mark on dark or light backgrounds with adequate contrast</p>
+    </div>
+    <div class="dodont-card dont">
+      <span class="badge">✗ Don't</span>
+      <svg viewBox="0 0 512 512" width="120" style="transform:rotate(45deg)">
+        <defs><linearGradient id="gdn1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs>
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#gdn1)"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#gdn1)" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#gdn1)" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#gdn1)" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#gdn1)" opacity="0.55"/>
+      </svg>
+      <p>Rotate, skew, or distort the mark — the formation direction is always horizontal-right</p>
+    </div>
+    <div class="dodont-card do">
+      <span class="badge">✓ Do</span>
+      <svg viewBox="0 0 512 512" width="120">
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="#f4f4f1"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="#f4f4f1" opacity="0.75"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="#f4f4f1" opacity="0.75"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="#f4f4f1" opacity="0.45"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="#f4f4f1" opacity="0.45"/>
+      </svg>
+      <p>Use the monochrome version when the gradient would clash with surrounding colors</p>
+    </div>
+    <div class="dodont-card dont">
+      <span class="badge">✗ Don't</span>
+      <svg viewBox="0 0 512 512" width="120">
+        <path d="M332,200 L408,256 L332,312 L352,256Z" fill="#ff0000"/>
+        <path d="M248,148 L316,200 L248,252 L264,200Z" fill="#00ff00" opacity="0.82"/>
+        <path d="M248,260 L316,312 L248,364 L264,312Z" fill="#0000ff" opacity="0.82"/>
+        <path d="M172,108 L232,152 L172,196 L184,152Z" fill="#ffff00" opacity="0.55"/>
+        <path d="M172,316 L232,360 L172,404 L184,360Z" fill="#ff00ff" opacity="0.55"/>
+      </svg>
+      <p>Apply off-brand colors or make each bird a different color outside the defined gradient</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ BRAND VOICE ═══════════════════════ -->
+<section id="voice">
+  <div class="section-label">06 — Voice</div>
+  <h2 class="section-title">How we <em>speak</em></h2>
+  <p class="section-subtitle">SwarmHaul's voice is technical but never cold. We explain complex protocol mechanics in plain language, with confidence that comes from shipping — not posturing.</p>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <h3>Technical, not jargon-heavy</h3>
+      <p>We say "per-leg PDA escrow vault" when the audience is technical, and "each courier gets paid automatically when they deliver" when it's not. Same truth, different resolution.</p>
+    </div>
+    <div class="voice-card">
+      <h3>Confident, not arrogant</h3>
+      <p>"We fixed three critical vault-drain bugs before writing the first feature" — state what you did, let the work speak. Never "we're the best" or "revolutionary."</p>
+    </div>
+    <div class="voice-card">
+      <h3>Direct, not verbose</h3>
+      <p>Lead with the answer or action, not the reasoning. "The protocol handles it" beats "leveraging our innovative blockchain-based solution, we are able to..."</p>
+    </div>
+    <div class="voice-card">
+      <h3>Protocol, not platform</h3>
+      <p>SwarmHaul is infrastructure that others build on. We say "protocol" and "plug in" — never "our platform" or "sign up for our service."</p>
+    </div>
+    <div class="voice-card">
+      <h3>Builder-first</h3>
+      <p>Show code, not slides. Link to the repo, not a waitlist. "Here's the mcp.json — your agents can participate in 30 seconds."</p>
+    </div>
+    <div class="voice-card">
+      <h3>Honest about state</h3>
+      <p>"Devnet. 94 tests passing. Security-audited. Demo-ready." We ship status, not promises. The roadmap is public and the issues are open.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:40px">
+    <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:16px">Brand Keywords</div>
+    <div class="keywords">
+      <span class="keyword">protocol</span>
+      <span class="keyword">autonomous</span>
+      <span class="keyword">coordination</span>
+      <span class="keyword">on-chain</span>
+      <span class="keyword">swarm</span>
+      <span class="keyword">relay</span>
+      <span class="keyword">settlement</span>
+      <span class="keyword">reputation</span>
+      <span class="keyword">MCP-native</span>
+      <span class="keyword">devnet</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ APPLICATIONS ═══════════════════════ -->
+<section id="apply">
+  <div class="section-label">07 — Applications</div>
+  <h2 class="section-title">In <em>context</em></h2>
+
+  <div class="app-grid">
+    <div class="app-mock mock-dark">
+      <span class="mock-label">Dashboard header</span>
+      <div class="mock-body" style="flex-direction:column;gap:12px;align-items:flex-start;padding:32px">
+        <div style="display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px;width:100%">
+          <svg viewBox="0 0 512 512" width="32"><defs><linearGradient id="ga1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs><path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#ga1)"/><path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#ga1)" opacity="0.82"/><path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#ga1)" opacity="0.82"/><path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#ga1)" opacity="0.55"/><path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#ga1)" opacity="0.55"/></svg>
+          <span style="font-size:14px;font-weight:200;letter-spacing:0.06em">SWARM<span style="font-weight:700">HAUL</span></span>
+          <span style="font-size:8px;background:var(--green);color:var(--void);padding:2px 8px;letter-spacing:0.14em;font-weight:700;margin-left:8px">DEVNET</span>
+        </div>
+        <div style="font-size:9px;color:var(--dim);letter-spacing:0.14em">▸ AGENT ECONOMY OBSERVATORY</div>
+        <div style="display:flex;gap:24px">
+          <div><div style="font-size:8px;color:var(--dim);letter-spacing:0.12em">SWARMS</div><div style="font-size:20px;font-weight:200">5</div></div>
+          <div><div style="font-size:8px;color:var(--dim);letter-spacing:0.12em">AGENTS</div><div style="font-size:20px;font-weight:200">4</div></div>
+          <div><div style="font-size:8px;color:var(--dim);letter-spacing:0.12em">BIDS</div><div style="font-size:20px;font-weight:200">12</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-mock mock-light">
+      <span class="mock-label" style="color:#999">Pitch slide</span>
+      <div class="mock-body" style="flex-direction:column;gap:16px">
+        <svg viewBox="0 0 512 512" width="80"><defs><linearGradient id="ga2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs><path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#ga2)"/><path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#ga2)" opacity="0.82"/><path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#ga2)" opacity="0.82"/><path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#ga2)" opacity="0.55"/><path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#ga2)" opacity="0.55"/></svg>
+        <div style="font-size:18px;font-weight:200;letter-spacing:0.04em;color:#1a1a1a">SWARM<span style="font-weight:700">HAUL</span></div>
+        <div style="font-size:10px;color:#888;letter-spacing:0.08em">Multi-agent coordination protocol on Solana</div>
+      </div>
+    </div>
+
+    <div class="app-mock mock-circle">
+      <span class="mock-label" style="color:rgba(255,255,255,0.5)">Social avatar</span>
+      <div class="mock-body">
+        <div style="width:120px;height:120px;border-radius:50%;background:var(--void);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+          <svg viewBox="0 0 512 512" width="68"><defs><linearGradient id="ga3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs><path d="M300,180 L420,256 L300,332 L332,256Z" fill="url(#ga3)"/><path d="M188,120 L292,192 L188,264 L216,192Z" fill="url(#ga3)" opacity="0.7"/><path d="M188,248 L292,320 L188,392 L216,320Z" fill="url(#ga3)" opacity="0.7"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-mock mock-social">
+      <span class="mock-label">GitHub social preview</span>
+      <div class="mock-body" style="flex-direction:column;gap:16px;background:linear-gradient(135deg,var(--void) 0%,#0c0c1a 100%)">
+        <svg viewBox="0 0 512 512" width="60"><defs><linearGradient id="ga4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6C5CE7"/><stop offset="50%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#00ff9c"/></linearGradient></defs><path d="M332,200 L408,256 L332,312 L352,256Z" fill="url(#ga4)"/><path d="M248,148 L316,200 L248,252 L264,200Z" fill="url(#ga4)" opacity="0.82"/><path d="M248,260 L316,312 L248,364 L264,312Z" fill="url(#ga4)" opacity="0.82"/><path d="M172,108 L232,152 L172,196 L184,152Z" fill="url(#ga4)" opacity="0.55"/><path d="M172,316 L232,360 L172,404 L184,360Z" fill="url(#ga4)" opacity="0.55"/></svg>
+        <div style="font-size:16px;font-weight:200;letter-spacing:0.06em;text-align:center">SWARM<span style="font-weight:700">HAUL</span></div>
+        <div style="font-size:9px;color:var(--ash);letter-spacing:0.06em;text-align:center;max-width:280px">Autonomous AI agents self-organize into delivery swarms and settle payment on Solana</div>
+        <div style="display:flex;gap:12px;margin-top:4px">
+          <span style="font-size:8px;color:var(--dim);border:1px solid var(--line);padding:3px 8px;letter-spacing:0.12em">SOLANA</span>
+          <span style="font-size:8px;color:var(--dim);border:1px solid var(--line);padding:3px 8px;letter-spacing:0.12em">MCP</span>
+          <span style="font-size:8px;color:var(--dim);border:1px solid var(--line);padding:3px 8px;letter-spacing:0.12em">AGENTS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="text-align:center;padding:80px 40px 40px;border-top:1px solid var(--line)">
+  <div class="gradient-bar" style="max-width:120px;margin:0 auto 32px;border-radius:3px"></div>
+  <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim)">
+    © 2026 Sharang Parnerkar · All rights reserved
+  </div>
+  <div style="font-size:9px;color:var(--faint);margin-top:8px;letter-spacing:0.14em">
+    SWARMHAUL BRAND GUIDELINES v1.0 — APRIL 2026
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Copy hex on swatch click
+document.querySelectorAll('.swatch').forEach(s=>{
+  s.addEventListener('click',()=>{
+    const hex=s.querySelector('.swatch-hex').textContent.split('·')[0].trim();
+    navigator.clipboard.writeText(hex).then(()=>{
+      const n=s.querySelector('.swatch-name');
+      const orig=n.textContent;
+      n.textContent='Copied!';
+      setTimeout(()=>n.textContent=orig,1200);
+    });
+  });
+});
+</script>
+</body>
+</html>

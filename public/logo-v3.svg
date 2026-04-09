@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- V3: HANDOFF RING — 3 agents orbiting a package, like planets around a sun -->
+  <!-- Warm + cool, balanced, Canva-friendly aesthetic -->
+  <defs>
+    <linearGradient id="g3a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="100%" stop-color="#FF2D8A"/>
+    </linearGradient>
+    <linearGradient id="g3b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#6C5CE7"/>
+    </linearGradient>
+    <linearGradient id="g3c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff9c"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Orbital ring -->
+  <circle cx="256" cy="256" r="168" fill="none" stroke="#E0E0E0" stroke-width="6" opacity="0.2"/>
+
+  <!-- Orbital arcs (each agent owns a 120° segment) -->
+  <path d="M256,88 A168,168 0 0,1 401,352" fill="none" stroke="url(#g3c)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M401,352 A168,168 0 0,1 111,352" fill="none" stroke="url(#g3a)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M111,352 A168,168 0 0,1 256,88" fill="none" stroke="url(#g3b)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Agent 1 (top) -->
+  <circle cx="256" cy="88" r="28" fill="url(#g3c)"/>
+  <circle cx="256" cy="88" r="10" fill="white"/>
+
+  <!-- Agent 2 (bottom-right) -->
+  <circle cx="401" cy="352" r="28" fill="url(#g3a)"/>
+  <circle cx="401" cy="352" r="10" fill="white"/>
+
+  <!-- Agent 3 (bottom-left) -->
+  <circle cx="111" cy="352" r="28" fill="url(#g3b)"/>
+  <circle cx="111" cy="352" r="10" fill="white"/>
+
+  <!-- Central package (the thing being coordinated) -->
+  <rect x="216" y="216" width="80" height="80" rx="16" fill="#2D3436"/>
+  <path d="M236,256 L256,240 L276,256 L256,272 Z" fill="white"/>
+</svg>

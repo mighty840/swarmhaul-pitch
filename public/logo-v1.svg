@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- V1: THE SWARM S — three connected waypoints forming an S-curve route -->
+  <!-- Clean, modern, works on any background. 1 accent color + neutral. -->
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff9c"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- The S-route path -->
+  <path d="M152,128 C264,128 264,256 152,256 C40,256 264,384 360,384"
+        fill="none" stroke="url(#g1)" stroke-width="40" stroke-linecap="round"/>
+
+  <!-- Waypoint nodes — the agents along the route -->
+  <circle cx="152" cy="128" r="32" fill="#00ff9c"/>
+  <circle cx="152" cy="256" r="28" fill="#00d4ff"/>
+  <circle cx="360" cy="384" r="32" fill="#00ff9c"/>
+
+  <!-- Inner dots — agent "eyes" -->
+  <circle cx="152" cy="128" r="12" fill="white"/>
+  <circle cx="152" cy="256" r="10" fill="white"/>
+  <circle cx="360" cy="384" r="12" fill="white"/>
+</svg>

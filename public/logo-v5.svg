@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- V5: SWARM BEE — a modern, geometric, friendly bee made of circles -->
+  <!-- A bee IS a swarm member. Playful but professional. Think Figma community style. -->
+  <defs>
+    <linearGradient id="g5body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800"/>
+      <stop offset="100%" stop-color="#FF8C00"/>
+    </linearGradient>
+    <linearGradient id="g5wing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff9c" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wings (behind body) -->
+  <!-- Top-left wing -->
+  <ellipse cx="208" cy="168" rx="80" ry="52" fill="url(#g5wing)" transform="rotate(-20 208 168)"/>
+  <!-- Top-right wing -->
+  <ellipse cx="304" cy="168" rx="80" ry="52" fill="url(#g5wing)" transform="rotate(20 304 168)"/>
+
+  <!-- Body: 3 overlapping circles forming the thorax+abdomen -->
+  <!-- Head -->
+  <circle cx="256" cy="208" r="52" fill="#2D3436"/>
+  <!-- Thorax -->
+  <circle cx="256" cy="288" r="60" fill="url(#g5body)"/>
+  <!-- Abdomen -->
+  <circle cx="256" cy="376" r="52" fill="url(#g5body)"/>
+
+  <!-- Body stripes -->
+  <rect x="196" y="268" width="120" height="12" rx="6" fill="#2D3436" opacity="0.5"/>
+  <rect x="204" y="300" width="104" height="12" rx="6" fill="#2D3436" opacity="0.5"/>
+  <rect x="212" y="358" width="88" height="10" rx="5" fill="#2D3436" opacity="0.4"/>
+  <rect x="220" y="384" width="72" height="10" rx="5" fill="#2D3436" opacity="0.4"/>
+
+  <!-- Eyes -->
+  <circle cx="232" cy="196" r="20" fill="white"/>
+  <circle cx="280" cy="196" r="20" fill="white"/>
+  <circle cx="236" cy="192" r="10" fill="#2D3436"/>
+  <circle cx="284" cy="192" r="10" fill="#2D3436"/>
+  <!-- Eye glint -->
+  <circle cx="240" cy="188" r="4" fill="white"/>
+  <circle cx="288" cy="188" r="4" fill="white"/>
+
+  <!-- Antennae -->
+  <path d="M240,164 C232,120 200,108 188,112" fill="none" stroke="#2D3436" stroke-width="6" stroke-linecap="round"/>
+  <path d="M272,164 C280,120 312,108 324,112" fill="none" stroke="#2D3436" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="188" cy="112" r="8" fill="#00ff9c"/>
+  <circle cx="324" cy="112" r="8" fill="#00ff9c"/>
+
+  <!-- Stinger: tiny arrow pointing down = delivery direction -->
+  <polygon points="256,428 244,444 268,444" fill="#2D3436"/>
+</svg>
