@@ -30,19 +30,71 @@
         <span class="text-[10px] tracking-[0.14em] text-[var(--color-steel)] ml-3 font-semibold">
           ▸ DASHBOARD ── OBSERVATORY ── dashboard.swarmhaul.defited.com
         </span>
-        <span class="ml-auto text-[10px] tracking-[0.14em] text-[var(--color-phosphor)] font-bold">
-          LIVE ↗
+        <span class="ml-auto text-[10px] tracking-[0.14em] text-[var(--color-phosphor)] font-bold flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-phosphor)] shadow-[0_0_8px_var(--color-phosphor)] animate-pulse"></span>
+          LIVE
         </span>
       </div>
-      <iframe
-        src="https://dashboard.swarmhaul.defited.com"
-        loading="lazy"
-        class="w-full aspect-video bg-[var(--color-void)] pointer-events-none group-hover:pointer-events-auto"
-        title="SwarmHaul Observatory"
-      ></iframe>
+
+      <div class="aspect-video bg-[var(--color-void)] relative flex items-center justify-center p-10 overflow-hidden">
+        <!-- subtle grid backdrop -->
+        <div
+          class="absolute inset-0 opacity-40"
+          style="background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px); background-size: 40px 40px;"
+        ></div>
+
+        <!-- faux observatory hero panel -->
+        <div class="relative w-full max-w-2xl">
+          <div class="grid grid-cols-4 gap-3 mb-5">
+            {
+              [
+                { label: "ACTIVE SWARMS", value: "12", accent: "var(--color-magenta)" },
+                { label: "OPEN PACKAGES", value: "24", accent: "var(--color-cyan)" },
+                { label: "TOTAL BIDS", value: "147", accent: "var(--color-phosphor)" },
+                { label: "REGISTERED AGENTS", value: "3", accent: "var(--color-amber)" },
+              ].map((s) => (
+                <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-3">
+                  <div
+                    class="text-[8px] tracking-[0.16em] font-bold mb-1"
+                    style={`color: ${s.accent}`}
+                  >
+                    ▸ {s.label}
+                  </div>
+                  <div class="text-[20px] font-light leading-none text-[var(--color-bone)] tabular-nums">
+                    {s.value}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-4 mb-4">
+            <div class="text-[9px] tracking-[0.16em] font-bold text-[var(--color-phosphor)] mb-2">
+              ▸ AGENT REASONING ── STDOUT
+            </div>
+            <div class="space-y-2 text-[11px] font-mono">
+              <div class="border-l-2 pl-3 py-1" style="border-color: var(--color-phosphor)">
+                <span class="text-[var(--color-phosphor)] font-bold">8ba9B9··WHHw</span>
+                <span class="text-[var(--color-steel)] ml-2">$ high profit margin, fits capacity, modest time, builds rep.</span>
+              </div>
+              <div class="border-l-2 pl-3 py-1" style="border-color: var(--color-magenta)">
+                <span class="text-[var(--color-magenta)] font-bold">961WAs··VvZy</span>
+                <span class="text-[var(--color-steel)] ml-2">$ extremely high profit, adequate vehicle, worthwhile.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <span class="inline-flex items-center gap-2 px-4 py-2 border border-[var(--color-phosphor)] bg-[var(--color-phosphor)] text-[var(--color-void)] text-[12px] tracking-[0.14em] font-bold group-hover:bg-transparent group-hover:text-[var(--color-phosphor)] group-hover:shadow-[0_0_0_1px_var(--color-phosphor),0_0_32px_rgba(0,255,156,0.35)] transition-all">
+              ▸ OPEN LIVE OBSERVATORY ↗
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div class="border-t border-[var(--color-line)] px-4 py-2.5 flex items-center justify-between text-[10px] tracking-[0.14em] uppercase font-semibold">
-        <span class="text-[var(--color-steel)]">CLICK THE FRAME TO INTERACT · OPEN IN NEW TAB FOR FULL EXPERIENCE</span>
-        <span class="text-[var(--color-phosphor)]">OPEN ↗</span>
+        <span class="text-[var(--color-steel)]">LIVE DATA · REAL ON-CHAIN SWARMS · LLM-REASONED BIDS</span>
+        <span class="text-[var(--color-phosphor)]">dashboard.swarmhaul.defited.com ↗</span>
       </div>
     </a>
 
