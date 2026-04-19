@@ -4,32 +4,33 @@ const roadmap = [
     when: "WEEK 1",
     status: "shipped",
     items: [
-      "Anchor program (3 critical fixes)",
+      "Anchor program (7 ix, 3 critical audit fixes)",
       "API ⇄ Solana wired end-to-end",
-      "MCP server (HTTP + stdio)",
+      "MCP server (HTTP + stdio, 8 tools)",
       "Dashboard observatory v1",
+      "Reputation system spec drafted",
     ],
   },
   {
     when: "WEEK 2",
-    status: "in progress",
+    status: "shipped",
     items: [
-      "Privy embedded wallets",
-      "Wallet signature auth on API",
-      "Vitest + testcontainers",
-      "GitHub Actions CI + codecov",
-      "Playwright E2E with mock wallet",
+      "Reputation economics layer (α, γ, Sybil ceiling)",
+      "Interactive Observatory with live sliders",
+      "Wallet-signed dispatch on devnet",
+      "Swarm Inspector view + multi-leg map",
+      "Dashboard readability overhaul",
+      "O(n²) route optimizer (58ms / 1000 bids)",
+      "Public deploy on Orca + devnet program",
     ],
   },
   {
     when: "WEEK 3",
-    status: "planned",
+    status: "in progress",
     items: [
-      "Squads Grid integration (session keys)",
-      "Second use case: research swarm",
-      "Docusaurus docs site",
-      "Geohash-bucket route optimizer",
-      "Demo video + Colosseum submission",
+      "Privy embedded wallets (remove Phantom gate)",
+      "Public MCP endpoint — judges plug Claude / Cursor in",
+      "On-chain reputation PDA as DID + VC primitive",
     ],
   },
   {
@@ -56,7 +57,7 @@ const statusColor: Record<string, string> = {
     <div class="mb-16 max-w-3xl">
       <div class="label mb-4">▸ ROADMAP</div>
       <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
-        21 days of <span class="editorial text-[var(--color-amber)]">focused</span> shipping.
+        <span class="display-serif text-[var(--color-amber)]">Focused</span> shipping, week by week.
       </h2>
     </div>
 
@@ -75,7 +76,7 @@ const statusColor: Record<string, string> = {
             </div>
             <ul class="space-y-2">
               {phase.items.map((item) => (
-                <li class="text-[11px] text-[var(--color-ash)] leading-relaxed flex gap-2">
+                <li class="text-[11px] text-[var(--color-steel)] leading-relaxed flex gap-2">
                   <span style={`color: ${statusColor[phase.status]}`}>▸</span>
                   <span>{item}</span>
                 </li>

@@ -85,30 +85,56 @@ const credibility = [
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
       <div>
         <div class="label mb-4">▸ FOUNDER</div>
-        <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light mb-6">
-          <span class="editorial text-[var(--color-phosphor)]">Sharang</span> Parnerkar
-        </h2>
-        <p class="text-[14px] text-[var(--color-ash)] leading-relaxed mb-6 max-w-xl">
-          Co-designer of the reputation layer for <strong class="text-[var(--color-bone)]">TRADE</strong>
-          (BMBF €1.59M). Tech lead and Product Owner at
+        <div class="flex items-center gap-5 mb-6">
+          <a
+            href="https://github.com/mighty840"
+            target="_blank"
+            rel="noreferrer"
+            class="shrink-0 block w-[88px] h-[88px] md:w-[104px] md:h-[104px] rounded-full border border-[var(--color-line-hot)] overflow-hidden hover:border-[var(--color-phosphor)] transition-colors"
+            style="box-shadow: 0 0 0 1px var(--color-line), 0 0 24px rgba(0,255,156,0.08);"
+            aria-label="Sharang Parnerkar on GitHub"
+          >
+            <img
+              src="https://github.com/mighty840.png?size=240"
+              alt="Sharang Parnerkar"
+              width="240"
+              height="240"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </a>
+          <div>
+            <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
+              <span class="display-serif text-[var(--color-phosphor)]">Sharang</span> Parnerkar
+            </h2>
+            <div class="text-[11px] tracking-[0.16em] uppercase text-[var(--color-steel)] font-semibold mt-2">
+              mighty840 · Berlin
+            </div>
+          </div>
+        </div>
+        <p class="text-[14px] text-[var(--color-steel)] leading-relaxed mb-6 max-w-xl">
+          Co-designer of the decentralized reputation layer for
+          <strong class="text-[var(--color-bone)]">TRADE</strong> (BMBF €1.59M).
+          Tech lead and Product Owner at
           <strong class="text-[var(--color-bone)]">ETOPay</strong>. Five patents across
-          sensor networks, verifiable NFTs, cryptographic wallets, and —
-          <em class="editorial text-[var(--color-phosphor)]">three years before this hackathon</em> —
+          sensor networks, verifiable NFTs, cryptographic wallets — and,
+          three years before this hackathon,
           <strong class="text-[var(--color-bone)]">a method and system for decentralized goods transport</strong>.
         </p>
-        <p class="text-[14px] text-[var(--color-ash)] leading-relaxed mb-8 max-w-xl">
-          SwarmHaul is the answer I've been designing for half a decade. Everything
-          on this page — the DIDs, the verifiable credentials, the web-of-trust
-          reputation, the cryptographic settlement, the logistics primitive — I've
-          either built, patented, or taught at a Web3 Autumn School at hy (Axel Springer)
-          in Berlin. Now it ships, as one protocol, on Solana.
+        <p class="text-[14px] text-[var(--color-steel)] leading-relaxed mb-8 max-w-xl">
+          SwarmHaul is the answer I've been designing for half a decade.
+          Everything on this page — the DIDs, the verifiable credentials, the
+          web-of-trust reputation, the cryptographic settlement, the logistics
+          primitive — I've either built, patented, or taught at a Web3 Autumn
+          School at hy (Axel Springer) in Berlin. Now it ships, as one
+          protocol, on Solana.
         </p>
 
         <div class="flex flex-wrap gap-3">
-          <a href="https://github.com/mighty840" target="_blank" rel="noopener" class="btn-ghost">
+          <a href="https://github.com/mighty840" target="_blank" rel="noreferrer" class="btn-ghost">
             GITHUB ↗
           </a>
-          <a href="https://www.linkedin.com/in/sharang-parnerkar/" target="_blank" rel="noopener" class="btn-ghost">
+          <a href="https://www.linkedin.com/in/sharang-parnerkar/" target="_blank" rel="noreferrer" class="btn-ghost">
             LINKEDIN ↗
           </a>
         </div>
@@ -144,10 +170,10 @@ const credibility = [
           <div class="label mb-4">▸ PATENTS</div>
           <h3 class="text-[28px] leading-[1.1] tracking-[-0.02em] font-light mb-4">
             Five filings.<br />
-            <span class="editorial text-[var(--color-magenta)]">One</span> is literally<br />
+            <span class="display-serif text-[var(--color-magenta)]">One</span> is literally<br />
             this protocol.
           </h3>
-          <p class="text-[12px] text-[var(--color-dim)] leading-relaxed">
+          <p class="text-[12px] text-[var(--color-steel)] leading-relaxed">
             Patent #5, filed in 2023, describes a method and system for
             decentralized goods transport — the exact primitive SwarmHaul
             demonstrates. This isn't a pivot; it's a return to a long-held thesis.
@@ -165,10 +191,10 @@ const credibility = [
                 }`}
               >
                 <div class="flex items-center gap-3 mb-2">
-                  <span class="text-[9px] text-[var(--color-dim)] tabular-nums font-mono">
+                  <span class="text-[10px] text-[var(--color-ash)] tabular-nums font-mono font-semibold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span class="text-[10px] tracking-[0.14em] text-[var(--color-dim)]">
+                  <span class="text-[10px] tracking-[0.14em] text-[var(--color-steel)] font-semibold">
                     {p.year}
                   </span>
                   <span
@@ -189,11 +215,11 @@ const credibility = [
                 <div class="text-[13px] font-semibold text-[var(--color-bone)] mb-1">
                   {p.titleEn}
                 </div>
-                <div class="text-[10px] text-[var(--color-faint)] italic mb-2 editorial">
+                <div class="text-[10px] text-[var(--color-ash)] mb-2 font-mono">
                   {p.titleDe}
                 </div>
-                <div class="text-[11px] text-[var(--color-ash)]">
-                  <span class="text-[var(--color-dim)]">▸ </span>
+                <div class="text-[11px] text-[var(--color-steel)]">
+                  <span class="text-[var(--color-ash)]">▸ </span>
                   {p.relevance}
                 </div>
               </div>

@@ -13,9 +13,10 @@
   --color-line-hot: #2c2c3c;
 
   --color-bone: #f4f4f1;
-  --color-ash: #8a8a98;
-  --color-dim: #4a4a58;
-  --color-faint: #2a2a36;
+  --color-steel: #c8c8d0;
+  --color-ash: #9898a5;
+  --color-dim: #6a6a7a;
+  --color-faint: #3a3a48;
 
   --color-phosphor: #00ff9c;
   --color-phosphor-dim: #00ff9c33;
@@ -84,14 +85,25 @@ body::before {
   animation: blink 1.1s steps(1) infinite;
 }
 
-.editorial {
+/* Upright display serif — used for the single accented word per heading.
+   Italic is banned across all body and data text (matches dashboard). */
+.editorial,
+.display-serif {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
 
 .label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+.label-muted {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.18em;

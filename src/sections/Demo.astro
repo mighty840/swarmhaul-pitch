@@ -6,29 +6,45 @@
     <div class="mb-12 max-w-3xl">
       <div class="label mb-4">▸ LIVE DEMO</div>
       <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
-        See the swarm <span class="editorial text-[var(--color-cyan)]">form</span> in real time.
+        See the swarm <span class="display-serif text-[var(--color-cyan)]">form</span> in real time.
       </h2>
+      <p class="mt-4 text-[14px] text-[var(--color-steel)] leading-relaxed max-w-2xl">
+        The Observatory below streams live from the devnet stack — agent bids,
+        LLM reasoning, swarm formation, on-chain settlement. Click through to
+        the live environment or open it side-by-side with this page.
+      </p>
     </div>
 
-    <!-- Demo embed placeholder — replace with iframe to live dashboard or video -->
-    <div class="relative border border-[var(--color-line)] bg-[var(--color-graphite)] overflow-hidden">
-      <div class="absolute top-0 left-0 right-0 h-7 border-b border-[var(--color-line)] bg-[var(--color-elevated)] flex items-center px-3 gap-2">
+    <a
+      href="https://dashboard.swarmhaul.defited.com"
+      target="_blank"
+      rel="noreferrer"
+      class="group block border border-[var(--color-line)] bg-[var(--color-graphite)] overflow-hidden hover:border-[var(--color-phosphor)] transition-colors"
+    >
+      <div class="h-8 border-b border-[var(--color-line)] bg-[var(--color-elevated)] flex items-center px-3 gap-2">
         <div class="flex gap-1.5">
           <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
           <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
           <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
         </div>
-        <span class="text-[9px] tracking-[0.14em] text-[var(--color-dim)] ml-3">
-          ▸ DASHBOARD ── ECONOMY OBSERVATORY ── http://localhost:5173
+        <span class="text-[10px] tracking-[0.14em] text-[var(--color-steel)] ml-3 font-semibold">
+          ▸ DASHBOARD ── OBSERVATORY ── dashboard.swarmhaul.defited.com
+        </span>
+        <span class="ml-auto text-[10px] tracking-[0.14em] text-[var(--color-phosphor)] font-bold">
+          LIVE ↗
         </span>
       </div>
-      <div class="aspect-video flex items-center justify-center text-[var(--color-dim)] text-[12px] tracking-[0.16em] uppercase">
-        <div class="text-center">
-          <div class="mb-3 text-[var(--color-phosphor)]">▸ LOOM EMBED PLACEHOLDER</div>
-          <div>Replace with &lt;iframe src=&quot;...&quot; /&gt; or screen recording</div>
-        </div>
+      <iframe
+        src="https://dashboard.swarmhaul.defited.com"
+        loading="lazy"
+        class="w-full aspect-video bg-[var(--color-void)] pointer-events-none group-hover:pointer-events-auto"
+        title="SwarmHaul Observatory"
+      ></iframe>
+      <div class="border-t border-[var(--color-line)] px-4 py-2.5 flex items-center justify-between text-[10px] tracking-[0.14em] uppercase font-semibold">
+        <span class="text-[var(--color-steel)]">CLICK THE FRAME TO INTERACT · OPEN IN NEW TAB FOR FULL EXPERIENCE</span>
+        <span class="text-[var(--color-phosphor)]">OPEN ↗</span>
       </div>
-    </div>
+    </a>
 
     <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
       <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-4">
@@ -37,15 +53,15 @@
       </div>
       <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-4">
         <div class="label mb-1">SETTLEMENT</div>
-        <div class="text-[20px] font-light text-[var(--color-phosphor)]">on-chain</div>
+        <div class="text-[20px] font-light text-[var(--color-phosphor)]">devnet</div>
       </div>
       <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-4">
-        <div class="label mb-1">PROTOCOL FEE</div>
-        <div class="text-[20px] font-light text-[var(--color-phosphor)]">0%</div>
+        <div class="label mb-1">ROUTE OPT (1000 BIDS)</div>
+        <div class="text-[20px] font-light text-[var(--color-phosphor)]">58 ms</div>
       </div>
       <div class="border border-[var(--color-line)] bg-[var(--color-graphite)] p-4">
-        <div class="label mb-1">BUILT IN</div>
-        <div class="text-[20px] font-light text-[var(--color-phosphor)]">21 days</div>
+        <div class="label mb-1">TESTS</div>
+        <div class="text-[20px] font-light text-[var(--color-phosphor)]">200+</div>
       </div>
     </div>
   </div>
