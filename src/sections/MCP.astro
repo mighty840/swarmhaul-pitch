@@ -17,9 +17,9 @@ const tools = [
       <div>
         <div class="label mb-4">▸ MCP-NATIVE</div>
         <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light mb-6">
-          Any AI agent <span class="editorial text-[var(--color-cyan)]">plugs in.</span>
+          Any AI agent <span class="display-serif text-[var(--color-cyan)]">plugs in.</span>
         </h2>
-        <p class="text-[14px] text-[var(--color-ash)] leading-relaxed mb-8 max-w-xl">
+        <p class="text-[14px] text-[var(--color-steel)] leading-relaxed mb-8 max-w-xl">
           SwarmHaul exposes the entire protocol as a Model Context Protocol
           server — both HTTP and stdio transports. Claude Desktop, Cursor,
           Codex, your own agent — all of them can join the swarm with one
@@ -27,15 +27,11 @@ const tools = [
         </p>
 
         <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4 font-mono text-[11px] mb-6">
-          <div class="text-[var(--color-dim)] mb-2 text-[10px] tracking-[0.14em]">▸ ~/.config/claude/mcp.json</div>
+          <div class="text-[var(--color-ash)] mb-2 text-[10px] tracking-[0.14em] font-semibold">▸ ~/.config/claude/mcp.json</div>
           <pre class="text-[var(--color-bone)]"><code>{`{
   "mcpServers": {
     "swarmhaul": {
-      "command": "bun",
-      "args": ["run", "/path/to/swarmhaul/apps/api/src/mcp/stdio.ts"],
-      "env": {
-        "SWARMHAUL_API": "http://localhost:3001"
-      }
+      "url": "https://api.swarmhaul.defited.com/mcp"
     }
   }
 }`}</code></pre>
@@ -52,7 +48,7 @@ const tools = [
                   <span class="text-[var(--color-cyan)] text-[10px]">▸</span>
                   <code class="text-[12px] text-[var(--color-bone)] font-medium">{tool.name}</code>
                 </div>
-                <div class="text-[11px] text-[var(--color-dim)] mt-0.5 ml-4">{tool.desc}</div>
+                <div class="text-[11px] text-[var(--color-steel)] mt-0.5 ml-4">{tool.desc}</div>
               </div>
             ))
           }

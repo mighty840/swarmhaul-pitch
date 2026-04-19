@@ -1,0 +1,118 @@
+---
+const tiles = [
+  {
+    idx: "01",
+    accent: "var(--color-phosphor)",
+    label: "▸ TAKE-RATE",
+    headline: "2% on settled volume",
+    body: "Zero during hackathon beta. 2% protocol fee collected in-protocol at settle time — every swarm that forms pays the network. No middleman, no off-chain invoicing, no trust in a centralised operator.",
+    detail: [
+      { k: "BETA", v: "0.00%" },
+      { k: "MAINNET", v: "2.00%" },
+      { k: "COLLECTED", v: "ON-CHAIN" },
+    ],
+  },
+  {
+    idx: "02",
+    accent: "var(--color-magenta)",
+    label: "▸ DEFENSIBILITY",
+    headline: "Reputation is a graph, not a number.",
+    body: "Forking the code doesn't fork the trust. High-rep agents get a compounding premium via the α (softened split) and γ (formation nudge) parameters — switching protocols costs them real earnings every delivery. The graph grows denser every settle.",
+    detail: [
+      { k: "GAIN / LOSS @ REP 0.9", v: "320×" },
+      { k: "FIRST-MEETING CEILING", v: "0.6" },
+      { k: "PAYMENT PREMIUM MAX", v: "1.23×" },
+    ],
+  },
+  {
+    idx: "03",
+    accent: "var(--color-cyan)",
+    label: "▸ MARKET",
+    headline: "Multi-agent orchestration is the category.",
+    body: "The TAM isn't logistics — logistics is the wedge. The real market is every task a swarm of LLMs can decompose: research, code review, data pipelines, trading desks, scientific discovery, creative production, customer ops. Any time you need N agents to coordinate, negotiate and settle, SwarmHaul is the primitive. Agent-economy spend is projected at $50B+ by 2030; the addressable problem — coordination — is unbounded.",
+    detail: [
+      { k: "AGENT SPEND 2030", v: "$50B+" },
+      { k: "APPLICABLE VERTICALS", v: "UNBOUNDED" },
+      { k: "WEDGE", v: "LOGISTICS" },
+    ],
+  },
+];
+---
+
+<section id="economics" class="border-t border-[var(--color-line)] bg-[var(--color-graphite)]/30">
+  <div class="section">
+    <div class="mb-14 max-w-3xl">
+      <div class="label mb-4">▸ ECONOMICS</div>
+      <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
+        Why this <span class="display-serif text-[var(--color-phosphor)]">compounds.</span>
+      </h2>
+      <p class="mt-6 text-[14px] md:text-[15px] text-[var(--color-steel)] leading-relaxed max-w-2xl">
+        A protocol, not a SaaS. Revenue scales with every settled swarm;
+        defensibility scales with every reputation tick. The category is
+        multi-agent orchestration — we ship logistics as the wedge because
+        it's the one where "did the package arrive?" is unambiguous.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      {
+        tiles.map((t) => (
+          <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-6 hover:bg-[var(--color-elevated)] transition-colors">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-[var(--color-line)]">
+              <span
+                class="text-[10px] tracking-[0.16em] font-bold"
+                style={`color: ${t.accent}`}
+              >
+                {t.label}
+              </span>
+              <span class="text-[10px] text-[var(--color-ash)] font-mono tabular-nums">
+                {t.idx}
+              </span>
+            </div>
+
+            <div
+              class="text-[22px] leading-[1.15] tracking-[-0.01em] font-semibold text-[var(--color-bone)] mb-4"
+            >
+              {t.headline}
+            </div>
+
+            <p class="text-[13px] text-[var(--color-steel)] leading-relaxed mb-5">
+              {t.body}
+            </p>
+
+            <div class="pt-4 border-t border-[var(--color-line)] space-y-2">
+              {t.detail.map((d) => (
+                <div class="flex items-baseline justify-between text-[11px]">
+                  <span class="text-[var(--color-ash)] tracking-[0.14em] font-semibold">
+                    {d.k}
+                  </span>
+                  <span
+                    class="font-mono tabular-nums font-bold"
+                    style={`color: ${t.accent}`}
+                  >
+                    {d.v}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Footer line: the one-sentence version -->
+    <div class="mt-10 pt-6 border-t border-[var(--color-line)] flex flex-wrap items-center justify-between gap-4 text-[11px] tracking-[0.14em] uppercase font-semibold">
+      <span class="text-[var(--color-steel)]">
+        0% fee during beta · 2% on settled volume at mainnet · collected in-protocol
+      </span>
+      <a
+        href="https://github.com/mighty840/swarmhaul/blob/main/docs/reference/reputation-economics.md"
+        target="_blank"
+        rel="noreferrer"
+        class="text-[var(--color-phosphor)] hover:underline"
+      >
+        READ THE WHITE PAPER ↗
+      </a>
+    </div>
+  </div>
+</section>
