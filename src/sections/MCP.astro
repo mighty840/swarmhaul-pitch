@@ -32,6 +32,45 @@ const tools = [
       }, 1200);
     });
   });
+
+  // "Try it" — live POST to the public MCP endpoint from the visitor's
+  // browser and paste the response inline. Proves the endpoint exists
+  // and is reachable, in one click.
+  const tryBtn = document.getElementById("mcp-try-btn");
+  const tryOut = document.getElementById("mcp-try-out");
+  tryBtn?.addEventListener("click", async () => {
+    if (!tryOut) return;
+    const prevLabel = tryBtn.textContent;
+    tryBtn.textContent = "▸ CALLING…";
+    (tryBtn as HTMLButtonElement).disabled = true;
+    tryOut.textContent = "POST https://api.swarmhaul.defited.com/mcp/call\n  { \"tool\": \"swarmhaul_economy_stats\" }\n\nawaiting response…";
+    try {
+      const res = await fetch("https://api.swarmhaul.defited.com/mcp/call", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ tool: "swarmhaul_economy_stats" }),
+      });
+      const body = await res.json();
+      // Unwrap the MCP content envelope so visitors see the interesting
+      // payload, not JSON-RPC plumbing.
+      let payload: unknown = body;
+      const text = body?.content?.[0]?.text;
+      if (typeof text === "string") {
+        try { payload = JSON.parse(text); } catch { payload = text; }
+      }
+      tryOut.textContent =
+        `HTTP ${res.status}\n\n` + JSON.stringify(payload, null, 2);
+      tryOut.animate(
+        [{ backgroundColor: "rgba(0,255,156,0.12)" }, { backgroundColor: "transparent" }],
+        { duration: 600, easing: "ease-out" },
+      );
+    } catch (err) {
+      tryOut.textContent = `request failed: ${String(err)}`;
+    } finally {
+      tryBtn.textContent = prevLabel;
+      (tryBtn as HTMLButtonElement).disabled = false;
+    }
+  });
 </script>
 
 <section id="mcp" class="border-t border-[var(--color-line)] bg-[var(--color-graphite)]/30">
@@ -82,6 +121,28 @@ const tools = [
     }
   }
 }`}</code></pre>
+        </div>
+
+        <!-- Try-it panel: clicks the live MCP endpoint in-browser and
+             reveals the raw JSON response. No copy-paste required. -->
+        <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4 mb-6">
+          <div class="flex items-center justify-between mb-3 gap-2">
+            <div class="text-[var(--color-ash)] text-[10px] tracking-[0.14em] font-semibold">
+              ▸ TRY IT · LIVE CALL
+            </div>
+            <button
+              type="button"
+              id="mcp-try-btn"
+              class="text-[10px] tracking-[0.16em] uppercase font-semibold text-[var(--color-void)] bg-[var(--color-phosphor)] hover:bg-[#33ffb0] px-3 py-1 border border-[var(--color-phosphor)] transition-colors"
+            >
+              ▸ CALL swarmhaul_economy_stats
+            </button>
+          </div>
+          <pre
+            id="mcp-try-out"
+            class="text-[10px] text-[var(--color-steel)] font-mono leading-snug min-h-[48px] whitespace-pre-wrap break-all"
+          >click the button — we'll POST to /mcp/call from your browser
+and paste the response below.</pre>
         </div>
 
         <div class="text-[11px] text-[var(--color-steel)] flex flex-wrap gap-4">
