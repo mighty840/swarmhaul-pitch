@@ -11,6 +11,29 @@ const tools = [
 ];
 ---
 
+<script>
+  // Generic copy-to-clipboard wiring for the pitch site. Any element
+  // with a .copy-btn class + data-copy attribute flashes "COPIED ✓" for
+  // ~1.2 s after the user clicks.
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".copy-btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const val = btn.dataset.copy ?? "";
+      try {
+        await navigator.clipboard.writeText(val);
+      } catch {
+        // Non-secure contexts or locked-down browsers: the snippet is
+        // still select-all-able as a fallback.
+      }
+      const original = btn.textContent;
+      btn.textContent = "COPIED ✓";
+      setTimeout(() => {
+        btn.textContent = original;
+      }, 1200);
+    });
+  });
+</script>
+
 <section id="mcp" class="border-t border-[var(--color-line)] bg-[var(--color-graphite)]/30">
   <div class="section">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -26,15 +49,44 @@ const tools = [
           line in <code class="text-[var(--color-cyan)]">mcp.json</code>.
         </p>
 
+        <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4 font-mono text-[11px] mb-3">
+          <div class="flex items-center justify-between mb-2 gap-2">
+            <div class="text-[var(--color-ash)] text-[10px] tracking-[0.14em] font-semibold">▸ ENDPOINT</div>
+            <button
+              type="button"
+              class="copy-btn text-[9px] tracking-[0.16em] uppercase font-semibold text-[var(--color-cyan)] hover:text-[var(--color-phosphor)] px-2 py-0.5 border border-[var(--color-line-hot)] hover:border-[var(--color-cyan)] transition-colors"
+              data-copy="https://api.swarmhaul.defited.com/mcp"
+            >
+              COPY
+            </button>
+          </div>
+          <code class="block text-[var(--color-phosphor)] break-all select-all">https://api.swarmhaul.defited.com/mcp</code>
+        </div>
+
         <div class="border border-[var(--color-line)] bg-[var(--color-void)] p-4 font-mono text-[11px] mb-6">
-          <div class="text-[var(--color-ash)] mb-2 text-[10px] tracking-[0.14em] font-semibold">▸ ~/.config/claude/mcp.json</div>
-          <pre class="text-[var(--color-bone)]"><code>{`{
+          <div class="flex items-center justify-between mb-2 gap-2">
+            <div class="text-[var(--color-ash)] text-[10px] tracking-[0.14em] font-semibold">▸ ~/.config/claude/mcp.json</div>
+            <button
+              type="button"
+              class="copy-btn text-[9px] tracking-[0.16em] uppercase font-semibold text-[var(--color-cyan)] hover:text-[var(--color-phosphor)] px-2 py-0.5 border border-[var(--color-line-hot)] hover:border-[var(--color-cyan)] transition-colors"
+              data-copy={`{\n  "mcpServers": {\n    "swarmhaul": {\n      "url": "https://api.swarmhaul.defited.com/mcp",\n      "transport": "http"\n    }\n  }\n}`}
+            >
+              COPY
+            </button>
+          </div>
+          <pre class="text-[var(--color-bone)] select-all"><code>{`{
   "mcpServers": {
     "swarmhaul": {
-      "url": "https://api.swarmhaul.defited.com/mcp"
+      "url": "https://api.swarmhaul.defited.com/mcp",
+      "transport": "http"
     }
   }
 }`}</code></pre>
+        </div>
+
+        <div class="text-[11px] text-[var(--color-steel)] flex flex-wrap gap-4">
+          <a href="https://docs.swarmhaul.defited.com/reference/mcp" class="text-[var(--color-cyan)] hover:underline">Full integration guide ↗</a>
+          <a href="https://api.swarmhaul.defited.com/mcp/tools" class="text-[var(--color-cyan)] hover:underline">Live tool manifest ↗</a>
         </div>
       </div>
 
