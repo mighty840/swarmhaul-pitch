@@ -1,0 +1,94 @@
+---
+const reasons = [
+  {
+    idx: "01",
+    accent: "var(--color-cyan)",
+    icon: "◈",
+    label: "▸ DIGITAL TASKS",
+    headline: "Your agent hit the token limit. Work doesn't stop.",
+    body: "An agent like Claude Code or any MCP-connected AI can run into context limits mid-task and simply stop — leaving work incomplete with no graceful handoff. SwarmHaul lets that agent post the remaining work on-chain. A new agent bids to continue it, potentially at lower cost because it carries no prior context weight. The same models are available — offered by independent operators in a decentralised marketplace, settled per-contribution on Solana. One task, many agents, zero interruption.",
+    stats: [
+      { k: "HANDOFF", v: "ON-CHAIN" },
+      { k: "COST", v: "MARKET RATE" },
+      { k: "MODELS", v: "ANY / OPEN" },
+    ],
+  },
+  {
+    idx: "02",
+    accent: "var(--color-phosphor)",
+    icon: "◉",
+    label: "▸ PHYSICAL RELAY",
+    headline: "No central dispatcher. Strangers' vehicles form the swarm.",
+    body: "The $500B logistics industry still routes every delivery through a central platform that takes 25–30%. SwarmHaul replaces the dispatcher with a protocol. Any autonomous vehicle — car, drone, robot — bids on the leg that fits its route. The parcel hops through a relay of strangers' vehicles, each settling their fee in SOL the moment they hand off. No Uber, no DoorDash, no single point of failure. Just agents, bids, and on-chain proof of every handoff.",
+    stats: [
+      { k: "PLATFORM CUT", v: "0%" },
+      { k: "SETTLE LATENCY", v: "< 1 s" },
+      { k: "INTERMEDIARIES", v: "NONE" },
+    ],
+  },
+];
+---
+
+<section id="why-exists" class="border-t border-[var(--color-line)]">
+  <div class="section">
+    <div class="mb-14 max-w-3xl reveal">
+      <div class="label mb-4">▸ WHY SWARMHAUL EXISTS</div>
+      <h2 class="text-[36px] md:text-[52px] leading-[1.05] tracking-[-0.02em] font-light">
+        Two problems <span class="display-serif text-[var(--color-cyan)]">no one</span> has wired together.
+      </h2>
+      <p class="mt-6 text-[14px] md:text-[15px] text-[var(--color-steel)] leading-relaxed max-w-2xl">
+        AI agents that outlast their own context window. Physical couriers
+        that route without a dispatcher. Both are coordination problems.
+        Both are solved by the same on-chain swarm primitive.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {
+        reasons.map((r, i) => (
+          <div
+            class={`reveal reveal-delay-${i + 1} border bg-[var(--color-graphite)] p-7 hover:bg-[var(--color-elevated)] transition-colors flex flex-col`}
+            style={`border-color: ${r.accent}33`}
+          >
+            {/* Header */}
+            <div class="flex items-center justify-between mb-5 pb-4 border-b" style={`border-color: ${r.accent}22`}>
+              <span class="text-[10px] tracking-[0.16em] font-bold" style={`color: ${r.accent}`}>
+                {r.label}
+              </span>
+              <span class="text-[22px] leading-none" style={`color: ${r.accent}`}>
+                {r.icon}
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h3 class="text-[22px] md:text-[24px] leading-[1.15] tracking-[-0.01em] font-semibold text-[var(--color-bone)] mb-4">
+              {r.headline}
+            </h3>
+
+            {/* Body */}
+            <p class="text-[13px] text-[var(--color-steel)] leading-relaxed mb-6 flex-1">
+              {r.body}
+            </p>
+
+            {/* Stats strip */}
+            <div class="pt-4 border-t grid grid-cols-3 gap-3" style={`border-color: ${r.accent}22`}>
+              {r.stats.map((s) => (
+                <div>
+                  <div class="text-[9px] text-[var(--color-ash)] tracking-[0.14em] font-semibold mb-1 uppercase">
+                    {s.k}
+                  </div>
+                  <div
+                    class="font-mono tabular-nums font-bold text-[12px] leading-tight"
+                    style={`color: ${r.accent}`}
+                  >
+                    {s.v}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
